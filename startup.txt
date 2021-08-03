@@ -1,0 +1,2 @@
+java -jar ./queue-reader/target/amqp-client-queue-reader.jar
+java -jar ./queue-reader/target/amqp-client-queue-reader.jar --spring.config.location=./queue-reader/application-external.properties
