@@ -1,4 +1,4 @@
-package ru.project.tuxarb.amqp.core;
+package ru.project.tuxarb.amqp.queuereader.core;
 
 import java.util.Arrays;
 

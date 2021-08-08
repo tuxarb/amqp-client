@@ -1,2 +1,5 @@
 java -jar ./queue-reader/target/amqp-client-queue-reader.jar
 java -jar ./queue-reader/target/amqp-client-queue-reader.jar --spring.config.location=./queue-reader/application-external.properties
+
+java -jar ./queue-duplicate-sender/target/amqp-client-queue-duplicate-sender.jar
+java -jar ./queue-duplicate-sender/target/amqp-client-queue-duplicate-sender.jar --spring.config.location=./queue-duplicate-sender/application-external.properties

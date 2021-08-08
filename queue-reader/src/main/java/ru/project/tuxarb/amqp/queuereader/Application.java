@@ -1,4 +1,4 @@
-package ru.project.tuxarb.amqp;
+package ru.project.tuxarb.amqp.queuereader;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

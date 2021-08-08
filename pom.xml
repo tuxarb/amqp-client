@@ -13,7 +13,9 @@
     <description>Родительский модуль для взаимодействий с AMQP-брокером</description>
 
     <modules>
+        <module>common</module>
         <module>queue-reader</module>
+        <module>queue-duplicate-sender</module>
     </modules>
 
     <properties>
@@ -33,6 +35,14 @@
 
         <lombok.version>1.18.16</lombok.version>
     </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.26</version>
+        </dependency>
+    </dependencies>
 
     <dependencyManagement>
         <dependencies>

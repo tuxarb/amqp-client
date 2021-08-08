@@ -1,4 +1,4 @@
-package ru.project.tuxarb.amqp;
+package ru.project.tuxarb.amqp.queuereader;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -6,7 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-import ru.project.tuxarb.amqp.util.JsonUtil;
+import ru.project.tuxarb.amqp.common.util.JsonUtil;
 
 import javax.annotation.PostConstruct;
 

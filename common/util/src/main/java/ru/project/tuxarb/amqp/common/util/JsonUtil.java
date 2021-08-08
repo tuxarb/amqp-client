@@ -1,4 +1,4 @@
-package ru.project.tuxarb.amqp.util;
+package ru.project.tuxarb.amqp.common.util;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonProcessingException;

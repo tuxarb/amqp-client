@@ -1,4 +1,4 @@
-package ru.project.tuxarb.amqp.amqp;
+package ru.project.tuxarb.amqp.queuereader.amqp;
 
 import com.rabbitmq.client.Channel;
 import org.apache.commons.io.IOUtils;
@@ -11,8 +11,8 @@ import org.springframework.amqp.support.AmqpHeaders;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.Header;
 import org.springframework.stereotype.Component;
-import ru.project.tuxarb.amqp.AppPropertiesContainer;
-import ru.project.tuxarb.amqp.core.ReceivedMessageOutputMode;
+import ru.project.tuxarb.amqp.queuereader.AppPropertiesContainer;
+import ru.project.tuxarb.amqp.queuereader.core.ReceivedMessageOutputMode;
 
 import java.io.File;
 import java.io.FileOutputStream;

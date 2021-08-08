@@ -4,32 +4,21 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>amqp-client-queue-reader</artifactId>
+    <artifactId>amqp-client-common-util</artifactId>
     <version>0.0.1</version>
     <packaging>jar</packaging>
 
     <parent>
         <groupId>ru.project.tuxarb.amqp</groupId>
-        <artifactId>amqp-client</artifactId>
+        <artifactId>amqp-client-common</artifactId>
         <version>0.0.1</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <name>queue-reader</name>
-    <description>Клиент к AMQP-брокеру для чтения сообщений из очереди и их отображения в нужном формате</description>
+    <name>common-util</name>
+    <description>Модуль с общими утилитами</description>
 
     <dependencies>
-        <dependency>
-            <groupId>ru.project.tuxarb.amqp</groupId>
-            <artifactId>amqp-client-common-util</artifactId>
-            <version>${app.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-amqp</artifactId>
-        </dependency>
-
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
@@ -66,29 +55,5 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
-
-    <build>
-        <finalName>amqp-client-queue-reader</finalName>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>2.2.1.RELEASE</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>repackage</goal>
-                        </goals>
-                        <configuration>
-                            <mainClass>ru.project.tuxarb.amqp.queuereader.Application</mainClass>
-                            <layout>ZIP</layout>
-                            <executable>true</executable>
-                            <addResources>true</addResources>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
 
 </project>
