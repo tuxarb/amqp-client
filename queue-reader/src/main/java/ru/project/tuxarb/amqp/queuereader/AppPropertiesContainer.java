@@ -33,6 +33,8 @@ public class AppPropertiesContainer {
     private String amqpPassword;
     @Value("${amqp_need_to_ack:true}")
     private Boolean needToAck;
+    @Value("${amqp_consumer_fetch_messages_count}")
+    private int consumerFetchMessagesCount;
     @Value("${output_mode:CONSOLE}") // что делать с полученным сообщением из очереди (по умолчанию пишем в консоль)
     private String outputMode;
     @Value("${file_output_mode_result_dir_path:null}") // путь к папке, куда сохранять сообщения как файлы для outputMode=FILE

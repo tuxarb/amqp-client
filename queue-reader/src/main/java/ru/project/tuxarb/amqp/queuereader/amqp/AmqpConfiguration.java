@@ -33,6 +33,7 @@ public class AmqpConfiguration {
         SimpleRabbitListenerContainerFactory factory = new SimpleRabbitListenerContainerFactory();
         factory.setConnectionFactory(connectionFactory());
         factory.setAcknowledgeMode(AcknowledgeMode.MANUAL);
+        factory.setPrefetchCount(appPropertiesContainer.getConsumerFetchMessagesCount());
         return factory;
     }
 }

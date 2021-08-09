@@ -25,6 +25,8 @@ import java.util.Map;
 import java.util.UUID;
 import javax.annotation.PostConstruct;
 
+import static java.util.Objects.requireNonNull;
+
 @Component
 public class RabbitConsumer {
 
@@ -84,13 +86,7 @@ public class RabbitConsumer {
         } catch (Exception e) {
             LOG.error("Error while receiving a message from amqp with payload: {}, headers: {}. Reason: {}", payload, messageHeaders, e);
         } finally {
-            if (appPropertiesContainer.getNeedToAck()) {
-                try {
-                    channel.basicAck(tag, false);
-                } catch (IOException e) {
-                    LOG.error("Can't ack", e);
-                }
-            }
+            ackOrRejectMessage(channel, tag);
         }
     }
 
@@ -102,6 +98,23 @@ public class RabbitConsumer {
             if (messageHeaders != null && !messageHeaders.isEmpty()) {
                 IOUtils.write("###################### Headers ######################" + LINE_FEED, fileOutputStream, StandardCharsets.UTF_8);
                 IOUtils.write(messageHeaders.toString(), fileOutputStream, StandardCharsets.UTF_8);
+            }
+        }
+    }
+
+    private void ackOrRejectMessage(Channel channel, long tag) {
+        requireNonNull(channel);
+        if (appPropertiesContainer.getNeedToAck()) {
+            try {
+                channel.basicAck(tag, false);
+            } catch (IOException e) {
+                LOG.error("Can't ack", e);
+            }
+        } else {
+            try {
+                channel.basicNack(tag, false, true);
+            } catch (IOException e) {
+                LOG.error("Can't reject", e);
             }
         }
     }
