@@ -96,7 +96,7 @@ public class RabbitConsumer {
         try (FileOutputStream fileOutputStream = new FileOutputStream(outputFilePath.toFile())) {
             IOUtils.write(payload, fileOutputStream, StandardCharsets.UTF_8);
             if (messageHeaders != null && !messageHeaders.isEmpty()) {
-                IOUtils.write("###################### Headers ######################" + LINE_FEED, fileOutputStream, StandardCharsets.UTF_8);
+                IOUtils.write(LINE_FEED + "###################### Headers ######################" + LINE_FEED, fileOutputStream, StandardCharsets.UTF_8);
                 IOUtils.write(messageHeaders.toString(), fileOutputStream, StandardCharsets.UTF_8);
             }
         }
